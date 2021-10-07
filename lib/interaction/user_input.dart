@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 String returnBookName() {
   print("Please enter book name: ");
   String bookName = stdin.readLineSync()!;
@@ -19,4 +18,14 @@ int returnPrintDate() {
   return printDate;
 }
 
+int returnDeletingInput(index) {
+  print("Please input the index to delete at: ");
+  int indexInput = int.parse(stdin.readLineSync()!);
 
+  if (indexInput <= index && indexInput >= 0) {
+    return indexInput;
+  } else {
+    returnDeletingInput(index);
+  }
+  return 0;
+}

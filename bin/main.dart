@@ -11,5 +11,5 @@ void main() async {
 
   
 
-  home();
+  await home();
 }
