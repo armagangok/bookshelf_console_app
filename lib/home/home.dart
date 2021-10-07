@@ -9,7 +9,7 @@ var book = Book(
   printDate: returnPrintDate(),
 );
 
-String home() {
+Future<void> home() async {
   String choose;
   while (true) {
     print("""
@@ -27,14 +27,14 @@ String home() {
         break;
 
       case "1":
-        getAllBook();
-        // deleteBook(index);
+        await getAllBook();
         break;
 
       case "2":
+        break;
 
       case "3":
-        getAllBook();
+        await getAllBook();
         break;
 
       case "e":

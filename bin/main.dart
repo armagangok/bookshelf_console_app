@@ -9,15 +9,7 @@ void main() async {
     ..init(path)
     ..registerAdapter(BookAdapter());
 
-  await Hive.openBox('box');
+  
 
   home();
-
-  // var items = box.values;
-  // await box.add(person);
-  // for (var item in items) {
-  //   print(item.name);
-  // }
-  // await box.clear();
-  // print(box.values);
 }
