@@ -1,5 +1,5 @@
 import 'dart:io';
 
-void clear() {
+void clearTerminal() {
   print(Process.runSync("clear", [], runInShell: true).stdout);
 }

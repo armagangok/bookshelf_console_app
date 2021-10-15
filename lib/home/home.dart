@@ -4,15 +4,17 @@ import 'package:project/database/hive_model.dart';
 import 'package:project/interaction/user_input.dart';
 import 'package:project/tools/clear_terminal.dart';
 
-var book = Book(
-  name: returnBookName(),
-  author: returnAuthorName(),
-  printDate: returnPrintDate(),
-);
-
 Future<void> home() async {
-  clear();
+  Book book = Book(
+    name: helper.returnBookName(),
+    author: helper.returnAuthorName(),
+    printDate: helper.returnPrintDate(),
+  );
+
+  clearTerminal();
+
   String choose;
+
   while (true) {
     print("""
   [E/e] Exit.
@@ -21,6 +23,7 @@ Future<void> home() async {
   [2] Search for.
   [3] Look up.
   """);
+
     choose = stdin.readLineSync()!;
 
     switch (choose) {
@@ -29,11 +32,11 @@ Future<void> home() async {
         break;
 
       case "1":
-        clear();
+        clearTerminal();
         int index = await getAllBook();
-        int indexInput = returnDeletingInput(index);
+        int indexInput = helper.returnDeletingInput(index);
         deleteBook(indexInput);
-        clear();
+        clearTerminal();
         await getAllBook();
         break;
 
@@ -41,17 +44,17 @@ Future<void> home() async {
         break;
 
       case "3":
-        clear();
+        clearTerminal();
         await getAllBook();
         break;
 
       case "e":
       case "E":
-        clear();
+        clearTerminal();
         exit(0);
 
       default:
-        clear();
+        clearTerminal();
         print("Error occured. Input is out of the range.");
     }
   }

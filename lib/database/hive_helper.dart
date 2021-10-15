@@ -9,7 +9,6 @@ Future<void> addBook(Book book) async {
 }
 
 Future<void> deleteBook(int index) async {
-  
   await Hive.openBox("bookBox");
   final box = Hive.box("bookBox");
   await box.deleteAt(index);
@@ -25,11 +24,11 @@ Future<int> getAllBook() async {
   for (var item in data) {
     print(
       index.toString() +
-          "-) " +
+          "-)   " +
           item.name +
-          " " +
+          "   " +
           item.author +
-          " " +
+          "   " +
           item.printDate.toString(),
     );
     index++;

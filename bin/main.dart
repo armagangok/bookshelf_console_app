@@ -9,7 +9,5 @@ void main() async {
     ..init(path)
     ..registerAdapter(BookAdapter());
 
-  
-
   await home();
 }

@@ -1,13 +1,24 @@
 import 'dart:io';
 
-String returnBookName() {
+
+InterHelp  helper = InterHelp();
+class InterHelp {
+    static final InterHelp _singleton = InterHelp._internal();
+  String content = "String";
+
+  factory InterHelp() {
+    return _singleton;
+  }
+
+  InterHelp._internal();
+  String returnBookName() {
   print("Please enter book name: ");
   String bookName = stdin.readLineSync()!;
   return bookName;
 }
 
 String returnAuthorName() {
-  print("Plese enter author name ");
+  print("Plese enter author name: ");
   String authorName = stdin.readLineSync()!;
   return authorName;
 }
@@ -28,4 +39,7 @@ int returnDeletingInput(index) {
     returnDeletingInput(index);
   }
   return 0;
+}
+
+
 }
